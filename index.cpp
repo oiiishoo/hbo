@@ -2,7 +2,6 @@
 #include<iostream>
 #include<string>
 #include<Windows.h>
-#include"AES.h"
 //#pragma execution_character_set( "utf-8" )
 #pragma warning(disable: 4996)
 void CopyToClipboard(const wchar_t* buffer, size_t size) {
