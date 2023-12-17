@@ -2,6 +2,7 @@
 #include<iostream>
 #include<string>
 #include<Windows.h>
+#include"AES.h"
 //#pragma execution_character_set( "utf-8" )
 #pragma warning(disable: 4996)
 void CopyToClipboard(const wchar_t* buffer, size_t size) {
@@ -26,10 +27,17 @@ int main() {
     //long double l = pow(12,256);
     //printf("%.lf\n", l);
     std::string input;
-    //std::getline(std::cin,input);
-    sd:
-    size_t length = 256;//atoi(input.c_str());
-    std::cout << "allocated " << length*sizeof(wchar_t)<<'\n';
+sd:
+    std::cout << "enter length: ";
+    std::getline(std::cin, input);
+
+    size_t length = atoi(input.c_str());
+    if (length == 0) {
+        system("cls");
+        std::cout << "entered 0 length, prohibited\n";
+        goto sd;
+    }
+    std::cout << "allocated length " << length<<'\n';
     wchar_t* operate = new wchar_t[length];
     std::cout << "Enter value to evaluate: ";
     std::wstring ope;
